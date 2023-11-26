@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org">
+	<style>
+		body{
+			background-color: rgb(185, 179, 166);
+		}
+	</style>
+	<head>
+		<title>Gestión de Productos</title>
+	</head>
+
+	
+	<body>
+		<h1 align="center">Productos</h1>
+		<h2 align="center">
+			<a th:href="@{RegistrarProducto}">Nuevo Producto</a>
+		</h2>
+		<table align="center" border="2">
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Pre.Venta</th>
+				<th>Stock</th>
+				<th>Pre.Compra</th>
+				<th>Estado</th>
+				<th>Descripción</th>
+				<th colspan="2">Acciones</th>
+			</tr>
+			<th:block th:each="p:${listado}">
+				
+				<tr>
+					<td th:text="${p.idproductocl3}"></td>
+					<td th:text="${p.nombrecl3}"></td>
+					<td th:text="${p.precioventacl3}"></td>
+					<td th:text="${p.stockcl3}"></td>
+					<td th:text="${p.preciocompracl3}"></td>
+					<td th:text="${p.estadocl3}"></td>
+					<td th:text="${p.descripcioncl3}"></td>
+					<td><a th:href="@{Editar/}+${p.idproductocl3}" th:text="Actualizar"></a></td>
+					<td><a th:href="@{Eliminar/}+${p.idproductocl3}" th:text="Eliminar"></a></td>
+				</tr>
+			</th:block>
+		
+		</table>
+		
+	</body>
+</html>
